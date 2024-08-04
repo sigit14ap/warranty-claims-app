@@ -1,11 +1,11 @@
 import React from 'react'
+import DefaultLayout from '../../layouts/DefaultLayout'
 
 const Dashboard: React.FC = () => {
     return (
-        <div>
-            <h1>Welcome to the Dashboard</h1>
-            {/* Add dashboard content here */}
-        </div>
+        <DefaultLayout>
+            Dashboard
+        </DefaultLayout>
     )
 }
 
