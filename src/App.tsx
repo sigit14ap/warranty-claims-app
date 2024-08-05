@@ -6,6 +6,9 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import Dashboard from './components/pages/Dashboard'
 import CreateProduct from './components/pages/products/CreateProduct'
 import ProductList from './components/pages/products/ProductList'
+import EditProduct from './components/pages/products/EditProduct'
+import NotFound from './components/pages/NotFound'
+import DetailProduct from './components/pages/products/DetailProduct'
 
 function App() {
   const isLoggedIn = useSelector((state: RootState) => state.staff.isLoggedIn)
@@ -20,6 +23,10 @@ function App() {
 
           <Route path="/products" element={isLoggedIn ? <ProductList /> : <Navigate to="/" />} />
           <Route path="/products/create" element={isLoggedIn ? <CreateProduct /> : <Navigate to="/" />} />
+          <Route path="/products/edit/:productId" element={isLoggedIn ? <EditProduct /> : <Navigate to="/" />} />
+          <Route path="/products/detail/:productId" element={isLoggedIn ? <DetailProduct /> : <Navigate to="/" />} />
+
+          <Route path="*"   element={<NotFound/>} />
         </Routes>
       </Router>
     </Provider>

@@ -5,8 +5,9 @@ interface TextareaProps {
     name: string
     placeholder: string
     value: string
-    onChange: (e: React.ChangeEvent <HTMLTextAreaElement> ) => void
+    onChange?: (e: React.ChangeEvent <HTMLTextAreaElement> ) => void
     error? : string
+    readonly?: boolean
 }
 
 const Textarea: React.FC < TextareaProps > = ({
@@ -15,7 +16,8 @@ const Textarea: React.FC < TextareaProps > = ({
         placeholder,
         value,
         onChange,
-        error
+        error,
+        readonly
     }) => {
     return (
         <textarea
@@ -23,6 +25,7 @@ const Textarea: React.FC < TextareaProps > = ({
             placeholder={placeholder}
             value={value}
             onChange={onChange}
+            readOnly={readonly}
             className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline p-2 ${className} ${error? 'border-red-500' : ''}`}
         />
     )

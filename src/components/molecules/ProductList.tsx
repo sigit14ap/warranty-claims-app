@@ -13,23 +13,29 @@ const ProductList: React.FC = () => {
         <Table className="table-auto">
             <thead>
                 <TableRow>
-                <TableCell className="text-left">Name</TableCell>
-                <TableCell className="text-left">Description</TableCell>
-                <TableCell className="text-center">Actions</TableCell>
+                    <TableCell className="text-center">Name</TableCell>
+                    <TableCell className="text-center">Description</TableCell>
+                    <TableCell className="text-center">Actions</TableCell>
                 </TableRow>
             </thead>
             <tbody>
-                {products.map((product) => (
+                {products && products.length > 0 ? products.map((product) => (
                 <TableRow key={product.id}>
-                    <TableCell>{product.name}</TableCell>
-                    <TableCell>{product.description}</TableCell>
+                    <TableCell className='text-center'>{product.name}</TableCell>
+                    <TableCell className='text-center'>{product.description}</TableCell>
                     <TableCell className="text-center">
-                    <Link to={`/product/${product.id}`} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                        Detail
-                    </Link>
+                        <Link to={`/products/detail/${product.id}`} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                            Detail
+                        </Link>
+
+                        <Link to={`/products/edit/${product.id}`} className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                            Edit
+                        </Link>
                     </TableCell>
                 </TableRow>
-                ))}
+                )) : (
+                    <TableCell className='text-center' colSpan={3}>No data</TableCell>
+                )}
             </tbody>
         </Table>
     )

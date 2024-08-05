@@ -17,7 +17,7 @@ const DefaultLayout: React.FC<DefaultLayoutProps> = ({ children }) => {
                     <h1 className="text-2xl font-bold text-gray-800">Staff Dashboard</h1>
                 </div>
                 <nav className="mt-6">
-                    <Link to="/" className="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-200">
+                    <Link to="/products" className="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-200">
                         Products
                     </Link>
                 </nav>
