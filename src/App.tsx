@@ -9,6 +9,8 @@ import ProductList from './components/pages/products/ProductList'
 import EditProduct from './components/pages/products/EditProduct'
 import NotFound from './components/pages/NotFound'
 import DetailProduct from './components/pages/products/DetailProduct'
+import WarrantyList from './components/pages/warranties/WarrantyList'
+import DetailWarranty from './components/pages/warranties/DetailWarranty'
 
 function App() {
   const isLoggedIn = useSelector((state: RootState) => state.staff.isLoggedIn)
@@ -25,6 +27,9 @@ function App() {
           <Route path="/products/create" element={isLoggedIn ? <CreateProduct /> : <Navigate to="/" />} />
           <Route path="/products/edit/:productId" element={isLoggedIn ? <EditProduct /> : <Navigate to="/" />} />
           <Route path="/products/detail/:productId" element={isLoggedIn ? <DetailProduct /> : <Navigate to="/" />} />
+
+          <Route path="/warranties" element={isLoggedIn ? <WarrantyList /> : <Navigate to="/" />} />
+          <Route path="/warranties/detail/:warrantyId" element={isLoggedIn ? <DetailWarranty /> : <Navigate to="/" />} />
 
           <Route path="*"   element={<NotFound/>} />
         </Routes>
